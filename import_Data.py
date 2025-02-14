@@ -2,7 +2,7 @@ import requests
 
 # 🔧 Configuration : URL de Grafana et Token API
 GRAFANA_CLOUD_INSTANCE_URL = "https://adnanehaddoutidev.grafana.net"
-GRAFANA_SOURCE_TOKEN = "eyJUb2tlbiI6ImdsY19leUp2SWpvaU1UQTFOVGszTXlJc0ltNGlPaUpuY21GbVlXNWhMV05zYjNWa0xXMXBaM0poZEdsdmJuTXRPRFU1TVRNeklpd2lheUk2SWpoQk0ySXpNemc1UkV4Wlp6UkhTRzlKTkdZNE5VdG9jQ0lzSW0waU9uc2ljaUk2SW5CeWIyUXRkWE10WldGemRDMHdJbjE5IiwiSW5zdGFuY2UiOnsiU3RhY2tJRCI6ODU5MTMzLCJTbHVnIjoiYWRuYW5laGFkZG91dGlkZXYiLCJSZWdpb25TbHVnIjoicHJvZC11cy1lYXN0LTAiLCJDbHVzdGVyU2x1ZyI6InByb2QtdXMtZWFzdC0wIn19"  # 🔴 Remplace par ton API Key
+GRAFANA_SOURCE_TOKEN = "XXX"  # 🔴 Remplace par ton API Key
 
 # 🔧 Configuration : URL de Grafana et Token API
 
