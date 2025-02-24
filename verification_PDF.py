@@ -15,8 +15,6 @@ from dotenv import load_dotenv
 # Charge les variables d'environnement depuis le fichier .env
 load_dotenv()
 
-
-
 API_TOKEN = os.getenv("API_TOKEN")
 GRAFANA_URL = os.getenv("GRAFANA_URL")
 DASHBOARD_UID = os.getenv("DASHBOARD_UID")
@@ -156,4 +154,3 @@ while True:
     print("⏳ En attente d'une tâche planifiée...")
     schedule.run_pending()
     time.sleep(60)  # Vérifie les tâches planifiées toutes les minutes
-
