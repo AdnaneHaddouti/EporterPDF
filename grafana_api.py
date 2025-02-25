@@ -2,9 +2,8 @@ import requests
 from datetime import datetime, timedelta
 from config import HEADERS, GRAFANA_URL, DASHBOARD_UID, TEMP_IMAGE
 
-
+# Récupère les métadonnées du dashboard via l’API Grafana.
 def fetch_dashboard_data():
-    """Récupère les métadonnées du dashboard via l’API Grafana."""
     url = f"{GRAFANA_URL}/api/dashboards/uid/{DASHBOARD_UID}"
     response = requests.get(url, headers=HEADERS)
     
@@ -14,13 +13,15 @@ def fetch_dashboard_data():
     else:
         print(f"❌ Erreur lors de la récupération du dashboard : {response.status_code}")
         return None
+    
+# Fonction pour récupérer une image du dashboard
 def fetch_dashboard_image():
-    """Récupère une image rendue du dashboard via l’API de rendu."""
     current_time = datetime.now()
     from_time = int((current_time - timedelta(days=30)).timestamp() * 1000)
     to_time = int(current_time.timestamp() * 1000)
 
     render_url = f"{GRAFANA_URL}/render/d/{DASHBOARD_UID}?width=1000&height=500&from={from_time}&to={to_time}"
+
     response = requests.get(render_url, headers=HEADERS)
     
     if response.status_code == 200:
@@ -31,8 +32,9 @@ def fetch_dashboard_image():
     else:
         print(f"❌ Erreur lors du rendu de l’image : {response.status_code}")
         return None
+    
+# Fonction pour récupérer la liste des dashboards
 def get_dashboards():
-    """Affiche la liste des dashboards disponibles sur Grafana."""
     url = f"{GRAFANA_URL}/api/search"
     try:
         response = requests.get(url, headers=HEADERS)
