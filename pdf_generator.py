@@ -13,12 +13,12 @@ class PDFGenerator:
     def __init__(self):
         self.styles = getSampleStyleSheet()
         self.api = GrafanaAPI()
-
+    
     def generate_pdf(self):
         print("🚀 Script démarré. En attente de la prochaine exécution...")
         print("📄 Génération du rapport PDF...")
         
-        dashboard_data = self.api.fetch_dashboard_data()  # <-- Utilisation de self.api
+        dashboard_data = self.api.fetch_dashboard_data() 
         if not dashboard_data:
             return
 
