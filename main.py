@@ -12,7 +12,7 @@ def main():
     # Maintenir le script en vie pour les tâches planifiées
     ## while True:
         ## time.sleep(60)
-    print("💡 Script terminé avec succès.")
+    print("✅ Script terminé avec succès.")
 
 
 if __name__ == "__main__":

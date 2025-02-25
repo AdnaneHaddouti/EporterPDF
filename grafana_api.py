@@ -3,13 +3,13 @@ from datetime import datetime, timedelta
 from config import HEADERS, GRAFANA_URL, DASHBOARD_UID, TEMP_IMAGE
 
 class GrafanaAPI:
-    
+
     def fetch_dashboard_data(self):
         url = f"{GRAFANA_URL}/api/dashboards/uid/{DASHBOARD_UID}"
         response = requests.get(url, headers=HEADERS)
         
         if response.status_code == 200:
-            print("✅ Métadonnées récupérées")
+            print("🗃️ Métadonnées récupérées")
             return response.json()
         else:
             print(f"❌ Erreur : {response.status_code}")
@@ -27,7 +27,7 @@ class GrafanaAPI:
         if response.status_code == 200:
             with open(TEMP_IMAGE, "wb") as f:
                 f.write(response.content)
-            print("✅ Image récupérée")
+            print("📷 Image récupérée")
             return TEMP_IMAGE
         else:
             print(f"❌ Erreur : {response.status_code}")
