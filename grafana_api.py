@@ -9,7 +9,7 @@ class GrafanaAPI:
         response = requests.get(url, headers=HEADERS)
         
         if response.status_code == 200:
-            print("🗃️ Métadonnées récupérées")
+            print("🗃️  Métadonnées récupérées")
             return response.json()
         else:
             print(f"❌ Erreur : {response.status_code}")
