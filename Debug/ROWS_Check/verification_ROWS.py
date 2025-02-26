@@ -60,7 +60,6 @@ def get_dashboards():
         print(f"❌ Erreur lors de l'analyse JSON : {json_err}")
 
 # 🔍 Récupérer les rows d'un dashboard spécifique par son UID
-# 🔍 Récupérer les rows d'un dashboard spécifique par son UID
 def get_dashboard_rows(dashboard_uid):
     url = f"{GRAFANA_URL}/api/dashboards/uid/{dashboard_uid}"
     try:
@@ -76,7 +75,7 @@ def get_dashboard_rows(dashboard_uid):
         panels = dashboard_details.get("dashboard", {}).get("panels", [])
 
         # Afficher la structure JSON pour débogage
-        print(json.dumps(dashboard_details, indent=2))
+        # print(json.dumps(dashboard_details, indent=2))
 
         if not panels:
             print(f"ℹ️ Aucun panel trouvé dans le dashboard '{dashboard_title}'.")
@@ -108,7 +107,7 @@ def get_dashboard_rows(dashboard_uid):
         for row_title, panels_in_row in rows_with_panels.items():
             print(f"➡️  Row: {row_title}")
             for panel in panels_in_row:
-                print(f"  - Panel: {panel['title']} (Type: {panel['type']})")
+                print(f"  🔍 Panel: {panel['title']} (Type: {panel['type']})")
 
     except requests.exceptions.HTTPError as http_err:
         print(f"❌ Erreur HTTP : {http_err}")
