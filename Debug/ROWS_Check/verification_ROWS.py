@@ -74,9 +74,6 @@ def get_dashboard_rows(dashboard_uid):
         dashboard_title = dashboard_details.get("dashboard", {}).get("title", "Sans titre")
         panels = dashboard_details.get("dashboard", {}).get("panels", [])
 
-        # Afficher la structure JSON pour débogage
-        # print(json.dumps(dashboard_details, indent=2))
-
         if not panels:
             print(f"ℹ️ Aucun panel trouvé dans le dashboard '{dashboard_title}'.")
             return
@@ -86,7 +83,6 @@ def get_dashboard_rows(dashboard_uid):
         # Dictionnaire pour organiser les panels par row
         rows_with_panels = {}
 
-        # Parcourir tous les panels
         current_row = None
         for panel in panels:
             panel_type = panel.get("type", "Type inconnu")
@@ -95,18 +91,20 @@ def get_dashboard_rows(dashboard_uid):
             # Si le panel est de type "row", c'est une nouvelle row
             if panel_type == "row":
                 current_row = panel_title
-                rows_with_panels[current_row] = []
+                rows_with_panels[current_row] = {
+                    "panels": []
+                }
             # Sinon, l'ajouter à la row actuelle
             elif current_row:
-                rows_with_panels[current_row].append({
+                rows_with_panels[current_row]["panels"].append({
                     "title": panel_title,
                     "type": panel_type
                 })
 
-        # Afficher les panels organisés par row
-        for row_title, panels_in_row in rows_with_panels.items():
-            print(f"➡️  Row: {row_title}")
-            for panel in panels_in_row:
+        # Afficher les panels organisés par rsow
+        for row_title, row_data in rows_with_panels.items():
+            print(f"➡️  Row: {row_title} ")
+            for panel in row_data["panels"]:
                 print(f"  🔍 Panel: {panel['title']} (Type: {panel['type']})")
 
     except requests.exceptions.HTTPError as http_err:

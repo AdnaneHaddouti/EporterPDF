@@ -1,7 +1,10 @@
 #Personalisé par moi-même
 
 Reports/
+screenshots/
+Tests/
 
+run_tests.py
 
 
 # Byte-compiled / optimized / DLL files
